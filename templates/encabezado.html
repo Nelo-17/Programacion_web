@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    
+    <title>{% block title %}Document{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        <img src="{% static 'img/Alucard cat pfp.jpg' %}" alt="imagen1" class="logo">
+        <h1>Programación Web</h1>
+        <h3>Jesús Miguel Díaz Montejo</h3>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/servicios/">Servicios</a></li>
+                <li><a href="/contactos/">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block containt %} {% endblock %}
+    <body background="{% static 'img/2baebfbd-3c17-4cc6-a6c4-b65f82b5a704.gif' %}" >
+</body>
+</html>

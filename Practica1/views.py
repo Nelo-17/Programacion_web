@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import PracticaForm
 
 # Create your views here.
 def index(request):
@@ -12,7 +13,20 @@ def servicios(request):
         
     })
     
-def contactos(request):
-    return render(request,'contactos.html',{
+    
+def Inicio(request):
+    return render(request,'Inicio.html',{
         
+    })
+
+def contactos(request):
+    if request.method == 'POST':
+        form = PracticaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = PracticaForm()
+    else:
+        form = PracticaForm()
+    return render(request,'contactos.html',{
+        'form': form
     })

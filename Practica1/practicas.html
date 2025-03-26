@@ -1,0 +1,13 @@
+{% extends 'encabezado.html' %}
+{% load static %}
+{% block title %}Practicas{% endblock %}
+{% block containt %}
+<div class="practicas">
+    <h1>Formulario de Prácticas</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}

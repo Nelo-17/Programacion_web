@@ -1,5 +1,9 @@
 {% extends 'encabezado.html' %}
+{% load static %}
 {% block title %}Inicio{% endblock %}
 {% block containt %}
-<h2>Esta es la zona Principal</h2>
+<div class="profile-pic">
+    <img src="{% static 'img/descarga.png' %}" alt="Foto de perfil">
+    <h2>Jesús Miguel Díaz Montejo</h2>
+</div>
 {% endblock %}

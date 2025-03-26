@@ -4,26 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Encabezado{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    
-    <title>{% block title %}Document{% endblock %}</title>
 </head>
-<body>
+<body background="{% static 'img/2baebfbd-3c17-4cc6-a6c4-b65f82b5a704.gif' %}">
 
-    <header>
-        <img src="{% static 'img/Alucard cat pfp.jpg' %}" alt="imagen1" class="logo">
-        <h1>Programación Web</h1>
-        <h3>Jesús Miguel Díaz Montejo</h3>
-        <nav>
-            <ul class="menu">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/servicios/">Servicios</a></li>
-                <li><a href="/contactos/">Contactos</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    {% block containt %} {% endblock %}
-    <body background="{% static 'img/2baebfbd-3c17-4cc6-a6c4-b65f82b5a704.gif' %}" >
+    <div class="wrapper">
+        <header>
+            <img src="{% static 'img/Alucard cat pfp.jpg' %}" alt="imagen1" class="logo">
+            <div>
+                <h1>Programación Web</h1>
+                <h3>Jesús Miguel Díaz Montejo</h3>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="/Home/">Home</a></li>
+                    <li><a href="/servicios/">Servicios</a></li>
+                    <li><a href="/contactos/">Contactos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <script>
+            function toggleMenu() {
+                document.querySelector(".menu").classList.toggle("active");
+            }
+        </script>
+        <div class="main-content">
+            {% block containt %} {% endblock %}
+        </div>
+        <footer>
+            <p>Copyright@2025 ITSR</p>
+        </footer>
+    </div>
 </body>
 </html>

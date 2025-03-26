@@ -1,5 +1,35 @@
-    {% extends 'encabezado.html' %}
-    {% block title %}Contactos{% endblock %}
-    {% block containt %}
-    <h2>Esta el la zona de Contactos</h2>
-    {% endblock %}
+{% extends 'encabezado.html' %}
+{% block title %}Contactos y Prácticas{% endblock %}
+{% block containt %}
+<div class="contact-container">
+    <h2>Contáctanos</h2>
+    <p>Estamos aquí para ayudarte. Puedes contactarnos a través de los siguientes medios:</p>
+    <div class="contact-info">
+        <ul>
+            <li><i class="fas fa-phone"></i> <strong>Teléfono:</strong> +52 123 456 7890</li>
+            <li><i class="fas fa-envelope"></i> <strong>Email:</strong> contacto@miempresa.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Calle Falsa 123, Ciudad, País</li>
+        </ul>
+    </div>
+    <div class="map-container">
+        <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7596.393764151514!2d-91.53333403236834!3d17.829403171785074!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85f3c2bd64971569%3A0x237ff6dacda499f4!2sInstituto%20Tecnol%C3%B3gico%20Superior%20de%20los%20R%C3%ADos!5e0!3m2!1ses!2smx!4v1742499128055!5m2!1ses!2smx"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+
+<div class="practicas">
+    <h1>Formulario de Prácticas</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+{% endblock %}

@@ -17,10 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Practica1 import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="index"),
+    path('', views.Inicio, name="Inicio"),
     path('servicios/', views.servicios, name="servicios"),
     path('contactos/', views.contactos, name="contactos"),
+    path('Home/', views.index, name="index"),
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

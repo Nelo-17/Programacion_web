@@ -3,7 +3,55 @@
 {% block title %}Inicio{% endblock %}
 {% block containt %}
 <div class="profile-pic">
-    <img src="{% static 'img/VWH.png' %}" alt="Foto de perfil">
+    <img src="{% static 'img/vag.png' %}" alt="Foto de perfil">
     <h2>Emanuel Enrique Álvarez Jiménez</h2>
+    <style>
+  .audio-control {
+    margin-top: 20px;
+  }
+  #reproductorAudio {
+    display: none;
+    margin-top: 10px;
+  }
+</style>
+
+<!-- Botón para mostrar/ocultar el reproductor -->
+<button onclick="toggleReproductor()">🎵 Sonido Ambiente</button>
+
+<div id="reproductorAudio">
+  <audio id="musicaFondo" loop>
+    <source src="{% static 'audio/ambiente.mp3' %}" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <div class="audio-control">
+    <button onclick="toggleAudio()">⏯️</button>
+    <label for="volumen">🔈:</label>
+    <input type="range" id="volumen" min="0" max="1" step="0.01" value="0.5" onchange="ajustarVolumen(this.value)">
+  </div>
+</div>
+
+<script>
+  const musica = document.getElementById("musicaFondo");
+  const reproductor = document.getElementById("reproductorAudio");
+  musica.volume = 0.5; // volumen inicial
+
+  function toggleAudio() {
+    if (musica.paused) {
+      musica.play();
+    } else {
+      musica.pause();
+    }
+  }
+
+  function ajustarVolumen(valor) {
+    musica.volume = valor;
+  }
+
+  function toggleReproductor() {
+    reproductor.style.display = (reproductor.style.display === "none") ? "block" : "none";
+  }
+</script>
+
 </div>
 {% endblock %}
